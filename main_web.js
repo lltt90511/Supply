@@ -134,7 +134,13 @@ class MainWeb extends Component {
     this.props.webFunc(iconUrlRow[urlType]);
   }
   pushToMe(){
-      this.props.meFunc(6,4);
+      this.props.func(6);
+  }
+  pushToContacts(){
+      this.props.func(10);
+  }
+  pushToMessage(){
+      this.props.func(11);
   }
   renderPage(
     data,
@@ -159,6 +165,7 @@ class MainWeb extends Component {
         cnt=cnt+1;
       })
     }
+    var picStr = "";
     var iconRow=new Array();
     var iconTitleRow = new Array();
     if(this.state.iconData!==null){
@@ -167,6 +174,9 @@ class MainWeb extends Component {
         iconUrlRow.push(path.URL);
         iconTitleRow.push(path.NAME);
       })
+      var url = iconRow[1];
+      var picList = url.split("uploadImgs/");
+      picStr = picList[0]+"uploadImgs/tail3.png";
     }
     return (
       <View style={styles.container}>
@@ -249,7 +259,7 @@ class MainWeb extends Component {
                 </TouchableOpacity>
               </View>
             </View>
-            <Image source={require('./res/home3.png')} style={styles.midBottomImage} />
+            <Image source={{uri:picStr}} style={styles.midBottomImage} />
         </ScrollView>
         <View style={styles.line} />
         <View style={styles.toolBarView}>
@@ -257,13 +267,17 @@ class MainWeb extends Component {
                   <Image source={require('./res/left1.png')} style={styles.leftImage} />
             </View> 
               <View style={styles.toolMid}>
+                 <TouchableOpacity onPress={()=>this.pushToContacts()} style={styles.leftBtn}>
                     <Image source={require('./res/midleft_1.png')} style={styles.toolMidImage} />
+                 </TouchableOpacity>
               </View>
               <View style={styles.toolMid}>
+                 <TouchableOpacity onPress={()=>this.pushToMessage()} style={styles.leftBtn}>
                     <Image source={require('./res/midright_1.png')} style={styles.toolMidImage} />
+                 </TouchableOpacity>
               </View> 
             <View style={styles.toolLeft}>
-                   <TouchableOpacity onPress={()=>this.pushToMe()} style={styles.leftBtn}>
+                 <TouchableOpacity onPress={()=>this.pushToMe()} style={styles.leftBtn}>
                       <Image source={require('./res/right2.png')} style={styles.rightImage} />
                  </TouchableOpacity>
             </View>

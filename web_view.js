@@ -16,7 +16,7 @@ import React, {
 var Dimensions = require('Dimensions');
 var WEBVIEW_REF = 'webview';
 
-var WebViewAndroid = require('react-native-webview-android');
+// var WebViewAndroid = require('react-native-webview-android');
 
 class Web extends Component {
     constructor(props) {  
@@ -55,12 +55,10 @@ class Web extends Component {
                   <Text style={styles.mainText}>主页</Text>
               </TouchableOpacity>
         </View>      
-      <WebViewAndroid
+      <WebView
         ref="webview"
         javaScriptEnabled={true}
-        geolocationEnabled={false}
-        builtInZoomControls={true}
-        url={this.props.webUrl}
+        source={{uri: this.props.webUrl}}
         style={styles.webview_style} />
       </View>
     );

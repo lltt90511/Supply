@@ -130,12 +130,14 @@ class Me extends Component {
     }
   }
   onBackAndroid = () => {
-    this.onBack();
     return true;
   }
 	  onBack(){
-      this.props.func(this.props.lastPage);
+      this.props.func(3);
 	  }
+    pushToContacts(){
+      this.props.func(10);
+    }
     onLogout(){
         this.props.func(1);
     }
@@ -147,6 +149,9 @@ class Me extends Component {
     }
     pushToAdvice(){
         this.props.func(9);
+    }
+    pushToMessage(){
+        this.props.func(11);
     }
     onCheck(){     
           this.setState({
@@ -221,11 +226,6 @@ class Me extends Component {
 	                  <Image source={require('./res/icon3.png')} style={styles.icon} />
                 	  <Text style={styles.infoText}>意见反馈</Text>
 	              </TouchableOpacity>
-	        	  <View style={styles.midLine} />
-	        	  <TouchableOpacity onPress={()=>this.onCheck()} style={styles.otherBtn1}>
-	                  <Image source={require('./res/icon4.png')} style={styles.icon} />
-                	  <Text style={styles.infoText}>检查更新</Text>
-	              </TouchableOpacity>
 	        	  <TouchableOpacity onPress={()=>this.callLogout()} style={styles.quitBtn}>
                 	  <Text style={styles.quitText}>安全退出</Text>
 	              </TouchableOpacity>
@@ -241,10 +241,14 @@ class Me extends Component {
 	                 </TouchableOpacity>
 	            </View>  
               <View style={styles.toolMid}>
-                    <Image source={require('./res/midleft_1.png')} style={styles.toolMidImage} />
+                   <TouchableOpacity onPress={()=>this.pushToContacts()} style={styles.leftBtn}>
+                      <Image source={require('./res/midleft_1.png')} style={styles.toolMidImage} />
+                   </TouchableOpacity>
               </View>
               <View style={styles.toolMid}>
+                   <TouchableOpacity onPress={()=>this.pushToMessage()} style={styles.leftBtn}>
                     <Image source={require('./res/midright_1.png')} style={styles.toolMidImage} />
+                   </TouchableOpacity>
               </View> 
 	            <View style={styles.toolLeft}>
 	                  <Image source={require('./res/right1.png')} style={styles.rightImage} />

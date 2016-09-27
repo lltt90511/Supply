@@ -107,7 +107,13 @@ class Main extends Component {
         this.props.func(4);
     }
     pushToMe(){
-        this.props.meFunc(6,3);
+        this.props.func(6);
+    }
+    pushToContacts(){
+        this.props.func(10);
+    }
+    pushToMessage(){
+        this.props.func(11);
     }
     render(){
       var weatherPic='http://120.76.75.77/weather/99.png';
@@ -231,13 +237,17 @@ class Main extends Component {
 		  	   	  	   	<Image source={require('./res/left1.png')} style={styles.leftImage} />
 		  	   	  </View> 
 		  	   	  <View style={styles.toolMid}>
-		  	   	  	   	<Image source={require('./res/midleft_1.png')} style={styles.toolMidImage} />
+                   <TouchableOpacity onPress={()=>this.pushToContacts()} style={styles.leftBtn}>
+		  	   	  	   	  <Image source={require('./res/midleft_1.png')} style={styles.toolMidImage} />
+                   </TouchableOpacity>
 		  	   	  </View>
               <View style={styles.toolMid}>
+                   <TouchableOpacity onPress={()=>this.pushToMessage()} style={styles.leftBtn}>
                     <Image source={require('./res/midright_1.png')} style={styles.toolMidImage} />
+                   </TouchableOpacity>
               </View>  
 		  	   	  <View style={styles.toolLeft}>
-	      	   	  	   <TouchableOpacity onPress={()=>this.pushToMe()} style={styles.leftBtn}>
+	      	   	  	 <TouchableOpacity onPress={()=>this.pushToMe()} style={styles.leftBtn}>
 	      	   	  	   		<Image source={require('./res/right2.png')} style={styles.rightImage} />
 		          	   </TouchableOpacity>
 		  	   	  </View>

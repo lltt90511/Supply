@@ -25,8 +25,11 @@ import Me from './me';
 import Info from './info';
 import Change from './change';
 import Advice from './advice';
+import Contacts from './contacts';
+import Message from './message';
 
 var REQUEST_URL = 'http://115.230.124.122:8080/sxmk/app/'
+// var REQUEST_URL = 'http://120.76.75.77:8080/sxmk/app/'
 
 var storage = new Storage({
   //最大容量，默认值1000条数据循环存储
@@ -116,13 +119,17 @@ class SupplyApp extends Component {
         case 5:
           return(<Web func={this.changePage} url={REQUEST_URL} webUrl={this.state.webUrl}/>);
         case 6:
-          return(<Me func={this.changePage} url={REQUEST_URL} lastPage={this.state.lastPage}/>);
+          return(<Me func={this.changePage} meFunc={this.changeMePage} url={REQUEST_URL} lastPage={this.state.lastPage}/>);
         case 7:
           return(<Info func={this.changePage} url={REQUEST_URL}/>);
         case 8:
           return(<Change func={this.changePage} url={REQUEST_URL}/>);
         case 9:
           return(<Advice func={this.changePage} url={REQUEST_URL}/>);
+        case 10:
+          return(<Contacts func={this.changePage} url={REQUEST_URL}/>);
+        case 11:
+          return(<Message func={this.changePage} url={REQUEST_URL}/>);
       }
     }
 }

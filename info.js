@@ -140,7 +140,7 @@ class Info extends Component {
 	                    });    
                     global.storage.save({
                       key: 'userDate', 
-      				  id: '1001', 
+      				        id: '1001', 
                       rawData: { 
                         userName: this.state.userName,
                         password: this.state.password,

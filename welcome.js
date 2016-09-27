@@ -42,7 +42,8 @@ var styles = StyleSheet.create({
     backgroundColor: 'white',
   },  
   bgimage: {
-    flex:1,
+    width: Dimensions.get('window').width,
+    height: Dimensions.get('window').height,
     alignItems: 'center',
     justifyContent: 'center',
     resizeMode:Image.resizeMode.cover,
